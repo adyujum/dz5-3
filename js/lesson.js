@@ -97,6 +97,8 @@ const converter = (element, targetElement, targetElement2) => {
                 targetElement2.value = ''
 
             }
+
+
         }
     }
 
