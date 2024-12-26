@@ -153,4 +153,30 @@ fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
     .then((data) => console.log(data))
 
+//WEATHER
+
+const inputSearch =  document.querySelector('.cityName');
+const searchBtn = document.querySelector('#search')
+const city = document.querySelector('.city')
+const temp = document.querySelector('.temp')
+const weatherBlock = document.querySelector('#weather_block')
+
+const API = 'http://api.openweathermap.org/data/2.5/weather'
+const API_KEY = 'appid=e417df62e04d3b1b111abeab19cea714'
+
+searchBtn.onclick = () => {
+    fetch(`${API}?${API_KEY}&q=${inputSearch.value}&units=metric`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            city.innerHTML = data.name || 'Город не найден...'
+            temp.innerHTML = data.main?.temp?  Math.round(data.main?.temp) + '&deg;C' : '(●\'◡\'●)'
+            weatherBlock.src = `http://api.openweathermap.org/img/wn/${data.weather[0].icon}.png`
+
+        })
+    inputSearch.value = ''
+}
+
+
+
 
