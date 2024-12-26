@@ -11,7 +11,7 @@ const cards = async () => {
             const {title, body} = data[cardId]
             cardLIst.innerHTML += `
         <div class="titan">
-            <img src="../img/gogo.jpg" alt="1tom">
+            <img src="../img/gogo.jpg" alt="gogo">
             <h3>${title}</h3>
             <p>${body}</p>
         
